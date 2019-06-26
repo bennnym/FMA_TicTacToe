@@ -39,7 +39,7 @@ const welcomeMessage = () => {
     "\n" +
     "Welcome to Tic Tac Toe!" + "\n" + "\n" +
     "Here's an empty board, enter the x and y coordinates" + "\n" +
-    "separated by a comma to place a marker in the correct spot." + "\n" +
+    "separated by a comma with no space to place a marker." + "\n" +
     "\n" +
     " 1,1 | 1,2 | 1,3" + "\n" +
     "-----------------" + "\n" +
@@ -119,7 +119,7 @@ const validateInput = ( num ) => {
 
 const validateMove = ( coordinates, marker ) => {
   // this is the valid format of the coordinates input
-  if ( coordinates.length === 3 && coordinates[1] === ',' ) {
+  if ( coordinates.length === 3 && coordinates[ 1 ] === ',' ) {
 
     coordinates = coordinates.split(',')
     var x = coordinates[ 0 ]
