@@ -141,6 +141,33 @@ const validateMove = ( coordinates, marker ) => {
   }
 };
 
+const playAgain = () => {
+  inquirer
+    .prompt(
+      {
+        type: 'input',
+        name: 'answer',
+        message: 'Play Again? (y/n)'
+      }
+    )
+    .then(input => {
+      const { answer } = input;
+      moveSuccess = false; 
+
+      if ( answer.trim().toLowerCase() === 'y' ) {
+        welcomeMessage();
+        playGame();
+      } 
+      else if ( answer.trim().toLowerCase() === 'n' ) {
+        return
+      } 
+      else {
+        console.log("Sorry I don't regonize that answer");
+        return playAgain();
+      }
+    });
+};
+
 const playGame = ( player=1, marker='X' ) => {
     inquirer
       .prompt(
@@ -151,7 +178,7 @@ const playGame = ( player=1, marker='X' ) => {
         }
       )
       .then(input => {
-        const { coordinates } = input 
+        const { coordinates } = input ;
         // exit the program
         if ( coordinates.trim() === 'q' ) {
           return 
@@ -162,10 +189,12 @@ const playGame = ( player=1, marker='X' ) => {
 
         if ( moveSuccess ) {
           if (checkForWin()) {
-            return console.log(colors.yellow(`Congratulations player ${player} you have won! Exiting game... `));
+            console.log(colors.yellow(`Congratulations player ${player} you have won!`));
+            return playAgain()
           }
           else if ( checkForDraw() ) {
-            return console.log(colors.blue('The game is a draw! Exiting Game...'));
+            console.log(colors.blue('The game is a draw! Exiting Game...'));
+            return playAgain();
           }
           // reset for the next move
           moveSuccess = false; 
