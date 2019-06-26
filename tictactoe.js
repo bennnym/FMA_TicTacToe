@@ -162,7 +162,7 @@ const playGame = ( player=1, marker='X' ) => {
 
         if ( moveSuccess ) {
           if (checkForWin()) {
-            return console.log(colors.yellow(`Congratulations player ${player}, you have won! Exiting game... `));
+            return console.log(colors.yellow(`Congratulations player ${player} you have won! Exiting game... `));
           }
           else if ( checkForDraw() ) {
             return console.log(colors.blue('The game is a draw! Exiting Game...'));
