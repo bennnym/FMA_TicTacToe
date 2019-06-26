@@ -1,4 +1,4 @@
-// Tic Tac Toe, FMA Application Challenge
+// Tic Tac Toe, FMA Application Challenge.
 
 const inquirer = require('inquirer');
 const colors = require('colors');
@@ -53,7 +53,7 @@ const changeMarker = ( marker ) => marker === 'X' ? 'O' : 'X';
 
 const changeTurn = ( turn ) => turn === 1 ? 2 : 1;
 
-// provide the board obj as input and return a boolean for the outcome of the board.
+// provide the board obj as input and return a boolean for the win outcome of the board.
 const checkForWin = () => {
   let winner = false;
   const winCombos = [
@@ -179,5 +179,5 @@ const playGame = ( player=1, marker='X' ) => {
       });
 };
 
-welcomeMessage()
-playGame()
+welcomeMessage();
+playGame();
