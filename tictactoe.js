@@ -41,7 +41,7 @@ const displayBoard = () => {
   ${board[3][1]} | ${board[3][2]} | ${board[3][3]}
   `
   );
-};
+}; 
 
 const welcomeMessage = () => {
   console.log(
@@ -64,7 +64,7 @@ const changeMarker = ( marker ) => marker === 'X' ? 'O' : 'X';
 // toggles between player turns
 const changeTurn = ( turn ) => turn === 1 ? 2 : 1;
 
-// provide the board obj as input and return a boolean for the win outcome of the board.
+// return a boolean for the win outcome of the board.
 const checkForWin = () => {
   let winner = false;
   const winCombos = [
@@ -106,7 +106,7 @@ const checkForDraw = () => {
   return true;
 };
 
-// returns true if the space is available
+// returns true if the space is available, false if not available.
 const checkEmptySpace = ( x, y ) => board[ x ][ y ] === '   ';
 
 // places the marker
@@ -115,6 +115,7 @@ const placeMarker = ( x, y, marker ) => {
   return board[ x ][ y ] = ` ${ marker } `
 };
 
+// validates individual coordinate inputs
 const validateInput = ( num ) => {
   if (isNaN(num)) {
     return false;
@@ -126,7 +127,7 @@ const validateInput = ( num ) => {
 
   return true;
 };
-
+// incorporates the entire logic for validating a move
 const validateMove = ( coordinates, marker ) => {
   // this is the valid format of the coordinates input
   if ( coordinates.length === 3 && coordinates[ 1 ] === ',' ) {

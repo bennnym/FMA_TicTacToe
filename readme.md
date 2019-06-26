@@ -29,25 +29,36 @@ Users wanting to play this game have prior knowledge of git, the console and nod
 
 - Now enter into the terminal `cd FMA_TicTacToe` and press `↩`. This navigates into the newly created folder.
 
-- We now need to install a couple of packages that the game depends on . In the terminal enter `npm install inquirer colors`.
+- We now need to install the required packages to run the game. In the terminal enter `npm install` and press `↩`.
 
-- Now enter `node tictactoe.js` and press `↩` and enjoy the game!
+- Now enter `npm run game` and press `↩` and enjoy the game!
 
 #### Windows
 - Press `❖ ` (windows key) or `❖ + R` and type in `cmd`.
+
 - In the `command prompt` type `git  clone https://github.com/bennnym/FMA_TicTacToe.git` and press `↩`.
+
 - Open the `command prompt` program and navigate into the newly created folder by typing `cd FMA_TicTacToe` and hitting `↩`.
-- Enter `npm install inquirer colors` and press `↩`.
-- Now enter `node tictactoe.js` and press `↩` and enjoy the game!
+
+- Enter `npm install` and press `↩`.
+
+- Now enter `npm run game` and press `↩` and enjoy the game!
 
 ### Game Rules
 1. The game is played on a grid that is 3 x 3 squares.
+
 2. Two players are required for a game.
+
 3. Player 1 always starts the game and assumes the marker "X".
+
 4. Players take turns to play until a player wins, or the end of the game (whichever happens first).
+
 5. The first player to get three of their markers in a row (vertically, horizontally or diagonally) is the winner.
+
 6. If all 9 squares are full and no player has won, the game ends in a draw.
+
 7. To input a marker the player must enter the `x` and `y` coordinates of the position they wish to place the marker. Like so:
+
 
 ```
  1,1 | 1,2 | 1,3
