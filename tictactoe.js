@@ -153,7 +153,7 @@ const playGame = ( player=1, marker='X' ) => {
       .then(input => {
         const { coordinates } = input 
         // exit the program
-        if ( coordinates === 'q' ) {
+        if ( coordinates.trim() === 'q' ) {
           return 
         }
 
