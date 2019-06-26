@@ -2,7 +2,7 @@
 
 ### Game set up
 
-**Asumption**
+**Assumption**
 
 Users wanting to play this game have prior knowledge of git, the console and node.js and have all installed on their operating system.
 
@@ -25,7 +25,7 @@ Users wanting to play this game have prior knowledge of git, the console and nod
 
 - Input `terminal` and click on the terminal program which is returned as the `top hit`
 
-- Once in the terminal application type `git clone https://github.com/bennnym/FMA_TicTacToe.git` and press `↩`. This clones the tictactoe repository onto the user's computer.
+- Once in the terminal application type `git clone https://github.com/bennnym/FMA_TicTacToe.git` and press `↩`. This clones the tic-tac-toe repository onto the user's computer.
 
 - Now enter into the terminal `cd FMA_TicTacToe` and press `↩`. This navigates into the newly created folder.
 
@@ -67,5 +67,12 @@ Users wanting to play this game have prior knowledge of git, the console and nod
  ---------------
  3,1 | 3,2 | 3,3
 ```
+### Solution Execution
+- The solution to the tic-tac-toe problem was purposefully executed with clear variable and function names. With a deliberate effort to make the code as readable as possible.
 
+- Individual functions were written for all actions required within the game play. Such as placing a marker, checking if there is a winner or a draw, checking if the space is available, clearing the board, displaying the board and validating user input.
+
+- All of these functions are tied in together with the use of the `inquirer` node package in order to receive user input from the console.
+
+- The combination of the welcomeMessage, playGame and playAgain functions navigate a tic-tac-toe game in a somewhat recursive solution where the players have power over how long the game runs according to their input. If the player decides to continue playing, the game continues and if the player decides to give up or finish playing the code exits and the game is over.
 
