@@ -33,32 +33,35 @@ const clearBoard = () => {
 
 const displayBoard = () => {
   console.log(
-    '\n' + 
-    ` ${ board[1][1] } | ${ board[1][2] } | ${ board[1][3] }` + '\n' +
-    '-----------------' + '\n' +
-    ` ${ board[2][1] } | ${ board[2][2] } | ${ board[2][3] }` + '\n' +
-    '-----------------' + '\n' +
-    ` ${ board[3][1] } | ${ board[3][2] } | ${ board[3][3] }` + '\n'
+  `
+  ${board[1][1]} | ${board[1][2]} | ${board[1][3]}
+ -----------------
+  ${board[2][1]} | ${board[2][2]} | ${board[2][3]}
+ -----------------
+  ${board[3][1]} | ${board[3][2]} | ${board[3][3]}
+  `
   );
 };
 
 const welcomeMessage = () => {
   console.log(
-    "\n" +
-    "Welcome to Tic Tac Toe!" + "\n" + "\n" +
-    "Here's an empty board, enter the x and y coordinates" + "\n" +
-    "separated by a comma with no space to place a marker." + "\n" +
-    "\n" +
-    " 1,1 | 1,2 | 1,3" + "\n" +
-    "-----------------" + "\n" +
-    " 2,1 | 2,2 | 2,3" + "\n" +
-    "-----------------" + "\n" +
-    " 3,1 | 3,2 | 3,3" + "\n"
+`
+Welcome to Tic Tac Toe!
+
+Here's an empty board, enter the x and y coordinates
+separated by a comma with no space to place a marker.
+    
+  1,1 | 1,2 | 1,3
+ -----------------
+  2,1 | 2,2 | 2,3
+ ----------------- 
+  3,1 | 3,2 | 3,3
+`
   );
 };
-
+// toggles between markers
 const changeMarker = ( marker ) => marker === 'X' ? 'O' : 'X';
-
+// toggles between player turns
 const changeTurn = ( turn ) => turn === 1 ? 2 : 1;
 
 // provide the board obj as input and return a boolean for the win outcome of the board.
@@ -79,7 +82,7 @@ const checkForWin = () => {
   ]
 
   winCombos.forEach( combo => {
-    // removes duplicaes from the combo
+    // removes duplicates from the combo
     const moves = [ ...new Set( combo ) ]
     
     // if condition is met we know all board positions are either X or O
@@ -129,22 +132,21 @@ const validateMove = ( coordinates, marker ) => {
   if ( coordinates.length === 3 && coordinates[ 1 ] === ',' ) {
 
     coordinates = coordinates.split(',')
-    var x = coordinates[ 0 ]
-    var y = coordinates[ 1 ]
+    var [x, y] = coordinates;
   };
   // check if the input is ok
   if ( validateInput( x ) && validateInput( y ) ) {
     // check if the space is available
     if ( checkEmptySpace( x, y ) ) {
       placeMarker( x, y, marker )
-      return colors.green("Move accepted, here's the current board:")
+      return colors.green( "Move accepted, here's the current board:" )
     } 
     else {
-      return colors.red("Oh no, a piece is already at that position!, Try again." + "\n" + "Here is the board:")
+      return colors.red( "Oh no, a piece is already at that position!, Try again." + "\n" + "Here is the board:" )
     }
   } 
   else {
-    return colors.red("Sorry, I don't recognize those coordinates," + "\n" + "they must be in the format of x,y. Try again." + "\n" + "Here is the current board:")
+    return colors.red( "Sorry, I don't recognize those coordinates," + "\n" + "they must be in the format of x,y. Try again." + "\n" + "Here is the current board:" )
   }
 };
 
@@ -171,7 +173,7 @@ const playAgain = () => {
         return
       } 
       else {
-        console.log("Sorry I don't regonize that answer");
+        console.log("Sorry I don't recognize that answer");
         return playAgain();
       }
     });
@@ -198,11 +200,11 @@ const playGame = ( player=1, marker='X' ) => {
 
         if ( moveSuccess ) {
           if (checkForWin()) {
-            console.log(colors.yellow(`Congratulations player ${player} you have won!`));
+            console.log( colors.yellow( `Congratulations player ${player} you have won!` ) );
             return playAgain()
           }
           else if ( checkForDraw() ) {
-            console.log(colors.blue('The game is a draw!'));
+            console.log( colors.blue( 'The game is a draw!' ) );
             return playAgain();
           }
           // reset for the next move
