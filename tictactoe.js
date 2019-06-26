@@ -21,7 +21,7 @@ const board = {
       2: '   ',
       3: '   '
   }
-}
+};
 
 const displayBoard = () => {
   console.log(
