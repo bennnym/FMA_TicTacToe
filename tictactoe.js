@@ -1,24 +1,25 @@
 // Tic Tac Toe, FMA Application Challenge
 
 const inquirer = require('inquirer');
+const colors = require('colors');
 
 let moveSuccess = false;
 
 const board = {
   1: {
-      1: ' ',
-      2: ' ',
-      3: ' '
+      1: '   ',
+      2: '   ',
+      3: '   '
     },
   2: {
-      1: ' ',
-      2: ' ',
-      3: ' '
+      1: '   ',
+      2: '   ',
+      3: '   '
   },
   3: {
-      1: ' ',
-      2: ' ',
-      3: ' '
+      1: '   ',
+      2: '   ',
+      3: '   '
   }
 }
 
@@ -26,12 +27,27 @@ const displayBoard = () => {
   console.log(
     '\n' + 
     ` ${ board[1][1] } | ${ board[1][2] } | ${ board[1][3] }` + '\n' +
-    ' ---------' + '\n' +
+    '-----------------' + '\n' +
     ` ${ board[2][1] } | ${ board[2][2] } | ${ board[2][3] }` + '\n' +
-    ' ---------' + '\n' +
+    '-----------------' + '\n' +
     ` ${ board[3][1] } | ${ board[3][2] } | ${ board[3][3] }` + '\n'
   );
 };
+
+const welcomeMessage = () => {
+  console.log(
+    "\n" +
+    "Welcome to Tic Tac Toe!" + "\n" + "\n" +
+    "Here's an empty board, enter the x and y coordinates" + "\n" +
+    "separated by a comma to place a marker in the correct spot." + "\n" +
+    "\n" +
+    " 1,1 | 1,2 | 1,3" + "\n" +
+    "-----------------" + "\n" +
+    " 2,1 | 2,2 | 2,3" + "\n" +
+    "-----------------" + "\n" +
+    " 3,1 | 3,2 | 3,3" + "\n"
+  );
+}
 
 const changeMarker = ( marker ) => marker === 'X' ? 'O' : 'X'
 
@@ -59,35 +75,34 @@ const checkForWin = () => {
     const moves = [ ...new Set( combo ) ]
     
     // if condition is met we know all board positions are either X or O
-    if ( moves.length === 1 && moves[ 0 ] !== ' ' ) {
-      winner = true;
+    if ( moves.length === 1 && moves[ 0 ] !== '   ' ) {
+       winner = true;
     } 
   })
   return winner
 }
-
+// returns a boolean as to the draw status of the game
 const checkForDraw = () => {
-  let draw = true;
 
   for ( let row in board ) {
 
     for ( let pos in board[ row ] ) {
       // if there is an empty space then it can't be a draw
-      if ( board[ row ][ pos ] === ' ' ) {
+      if ( board[ row ][ pos ] === '   ' ) {
         return false;
       };
     };
   };
-  return draw;
+  return true;
 }
 
 // returns true if the space is available
-const checkEmptySpace = ( x, y ) => board[ x ][ y ] === ' ';
+const checkEmptySpace = ( x, y ) => board[ x ][ y ] === '   ';
 
 // places the marker
 const placeMarker = ( x, y, marker ) => {
   moveSuccess = true;
-  return board[ x ][ y ] = marker
+  return board[ x ][ y ] = ` ${ marker } `
 }
 
 const validateInput = ( num ) => {
@@ -137,20 +152,20 @@ const playGame = ( player=1, marker='X' ) => {
       ])
       .then(input => {
         const { coordinates } = input 
-
+        // exit the program
         if ( coordinates === 'q' ) {
           return 
         }
 
-        console.log(validateMove( coordinates, marker ));
+        console.log(validateMove( coordinates.trim(), marker ));
         displayBoard()
 
         if ( moveSuccess ) {
-          if ( checkForDraw() ) {
-            return console.log('The game is a draw! Exiting Game...');
+          if (checkForWin()) {
+            return console.log(colors.red(`Congratulations player ${player}, you have won! Exiting game... `));
           }
-          else if ( checkForWin() ) {
-            return console.log(`Congratulations player ${ player }, you have won! Exiting game... `);
+          else if ( checkForDraw() ) {
+            return console.log(colors.green('The game is a draw! Exiting Game...'));
           }
           // reset for the next move
           moveSuccess = false; 
@@ -163,4 +178,5 @@ const playGame = ( player=1, marker='X' ) => {
       });
 };
 
+welcomeMessage()
 playGame()
