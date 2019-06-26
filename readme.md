@@ -10,7 +10,7 @@ Users wanting to play this game have prior knowledge of git, the console and nod
 
 [Getting started with Git and GitHub: the complete beginner’s guide](https://towardsdatascience.com/getting-started-with-git-and-github-6fcd0f2d4ac6).
 
-*For more information on navigating the command line (also known as the terminal and console) please see here:**
+*For more information on navigating the command line (also known as the terminal and console) please see here:*
 
 **Mac** - [A Beginner's Guide to Using the Mac Terminal](https://www.makeuseof.com/tag/beginners-guide-mac-terminal/)
 
@@ -29,7 +29,7 @@ Users wanting to play this game have prior knowledge of git, the console and nod
 
 - Now enter into the terminal `cd FMA_TicTacToe` and press `↩`. This navigates into the newly created folder.
 
-- We now need to install one package that the game depends on `inquirer`. In the terminal enter `npm install inquirer`.
+- We now need to install a couple of packages that the game depends on . In the terminal enter `npm install inquirer colors`.
 
 - Now enter `node tictactoe.js` and press `↩` and enjoy the game!
 
@@ -37,7 +37,7 @@ Users wanting to play this game have prior knowledge of git, the console and nod
 - Press `❖ ` (windows key) or `❖ + R` and type in `cmd`.
 - In the `command prompt` type `git clonehttps://github.com/bennnym/FMA_TicTacToe.git` and press `↩`.
 - Open the `command prompt` program and navigate into the newly created folder by typing `cd FMA_TicTacToe` and hitting `↩`.
-- Enter `npm install inquirer` and press `↩`.
+- Enter `npm install inquirer colors` and press `↩`.
 - Now enter `node tictactoe.js` and press `↩` and enjoy the game!
 
 ### Game Rules
