@@ -44,7 +44,7 @@ Users wanting to play this game have prior knowledge of git, the console and nod
 1. The game is played on a grid that is 3 x 3 squares.
 2. Two players are required for a game.
 3. Player 1 always starts the game and assumes the marker "X".
-4. Players take turns to play till a player wins, or the end of the game (whichever happens first).
+4. Players take turns to play until a player wins, or the end of the game (whichever happens first).
 5. The first player to get three of their markers in a row (vertically, horizontally or diagonally) is the winner.
 6. If all 9 squares are full and no player has won, the game ends in a draw.
 7. To input a marker the player must enter the `x` and `y` coordinates of the position they wish to place the marker. Like so:

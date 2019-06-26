@@ -25,8 +25,8 @@ const board = {
 
 const clearBoard = () => {
   for ( let row in board ) {
-    for ( let spot in board[ row ] ) {
-      board[ row ][ spot ] = '   '
+    for ( let col in board[ row ] ) {
+      board[ row ][ col ] = '   '
     };
   };
 };
@@ -93,10 +93,9 @@ const checkForWin = () => {
 const checkForDraw = () => {
 
   for ( let row in board ) {
-
-    for ( let pos in board[ row ] ) {
+    for ( let col in board[ row ] ) {
       // if there is an empty space then it can't be a draw
-      if ( board[ row ][ pos ] === '   ' ) {
+      if ( board[ row ][ col ] === '   ' ) {
         return false;
       };
     };
@@ -203,7 +202,7 @@ const playGame = ( player=1, marker='X' ) => {
             return playAgain()
           }
           else if ( checkForDraw() ) {
-            console.log(colors.blue('The game is a draw! Exiting Game...'));
+            console.log(colors.blue('The game is a draw!'));
             return playAgain();
           }
           // reset for the next move
