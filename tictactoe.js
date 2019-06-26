@@ -25,21 +25,17 @@ const board = {
 const displayBoard = () => {
   console.log(
     '\n' + 
-    `${ board[1][1] } | ${ board[1][2] } | ${ board[1][3] }` + '\n' +
-    '---------' + '\n' +
-    `${ board[2][1] } | ${ board[2][2] } | ${ board[2][3] }` + '\n' +
-    '---------' + '\n' +
-    `${ board[3][1] } | ${ board[3][2] } | ${ board[3][3] }` + '\n'
+    ` ${ board[1][1] } | ${ board[1][2] } | ${ board[1][3] }` + '\n' +
+    ' ---------' + '\n' +
+    ` ${ board[2][1] } | ${ board[2][2] } | ${ board[2][3] }` + '\n' +
+    ' ---------' + '\n' +
+    ` ${ board[3][1] } | ${ board[3][2] } | ${ board[3][3] }` + '\n'
   );
 };
 
-const changeMarker = ( marker ) => {
-  return marker === 'X' ? 'O' : 'X'
-}
+const changeMarker = ( marker ) => marker === 'X' ? 'O' : 'X'
 
-const changeTurn = (turn) => {
-  return turn === 1 ? 2 : 1
-}
+const changeTurn = ( turn ) => turn === 1 ? 2 : 1;
 
 // provide the board obj as input and return a boolean for the outcome of the board.
 const checkForWin = () => {
@@ -86,9 +82,7 @@ const checkForDraw = () => {
 }
 
 // returns true if the space is available
-const checkEmptySpace = ( x, y ) => {
-  return board[ x ][ y ] === ' '
-}
+const checkEmptySpace = ( x, y ) => board[ x ][ y ] === ' ';
 
 // places the marker
 const placeMarker = ( x, y, marker ) => {
@@ -132,7 +126,7 @@ const validateMove = ( coordinates, marker ) => {
   // check if they entered a q
 }
 
-const turnPrompt = ( player, marker ) => {
+const playGame = ( player=1, marker='X' ) => {
     inquirer
       .prompt([
         {
@@ -161,16 +155,12 @@ const turnPrompt = ( player, marker ) => {
           // reset for the next move
           moveSuccess = false; 
           // switches to the next player
-          return playGame( changeMarker(marker), changeTurn(player) )
+          return playGame( changeTurn(player), changeMarker(marker) )
         }
 
-        playGame( marker, player )
+       return playGame( player, marker )
 
       });
-}
-
-const playGame = ( marker='X', player=1 ) => {
-  turnPrompt( player, marker )
-}
+};
 
 playGame()
