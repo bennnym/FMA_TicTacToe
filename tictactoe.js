@@ -47,9 +47,9 @@ const welcomeMessage = () => {
     "-----------------" + "\n" +
     " 3,1 | 3,2 | 3,3" + "\n"
   );
-}
+};
 
-const changeMarker = ( marker ) => marker === 'X' ? 'O' : 'X'
+const changeMarker = ( marker ) => marker === 'X' ? 'O' : 'X';
 
 const changeTurn = ( turn ) => turn === 1 ? 2 : 1;
 
@@ -77,10 +77,10 @@ const checkForWin = () => {
     // if condition is met we know all board positions are either X or O
     if ( moves.length === 1 && moves[ 0 ] !== '   ' ) {
        winner = true;
-    } 
-  })
-  return winner
-}
+    };
+  });
+  return winner;
+};
 // returns a boolean as to the draw status of the game
 const checkForDraw = () => {
 
@@ -94,7 +94,7 @@ const checkForDraw = () => {
     };
   };
   return true;
-}
+};
 
 // returns true if the space is available
 const checkEmptySpace = ( x, y ) => board[ x ][ y ] === '   ';
@@ -103,18 +103,19 @@ const checkEmptySpace = ( x, y ) => board[ x ][ y ] === '   ';
 const placeMarker = ( x, y, marker ) => {
   moveSuccess = true;
   return board[ x ][ y ] = ` ${ marker } `
-}
+};
 
 const validateInput = ( num ) => {
   if (isNaN(num)) {
-    return false
+    return false;
   }
   // coordinates must be in the range of 1 - 3
   if (num >= 4 || num <= 0) {
-    return false
-  }
-  return true
-}
+    return false;
+  };
+
+  return true;
+};
 
 const validateMove = ( coordinates, marker ) => {
   // this is the valid format of the coordinates input
@@ -123,7 +124,7 @@ const validateMove = ( coordinates, marker ) => {
     coordinates = coordinates.split(',')
     var x = coordinates[ 0 ]
     var y = coordinates[ 1 ]
-  }
+  };
   // check if the input is ok
   if ( validateInput( x ) && validateInput( y ) ) {
     // check if the space is available
@@ -139,7 +140,7 @@ const validateMove = ( coordinates, marker ) => {
     return "Sorry, I don't recognize those coordinates, they must be in the format of x,y. Try again..." + "\n" + "Here is the current board:"
   }
   // check if they entered a q
-}
+};
 
 const playGame = ( player=1, marker='X' ) => {
     inquirer
