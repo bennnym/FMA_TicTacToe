@@ -130,27 +130,26 @@ const validateMove = ( coordinates, marker ) => {
     // check if the space is available
     if ( checkEmptySpace( x, y ) ) {
       placeMarker( x, y, marker )
-      return "Move accepted, here's the current board:"
+      return colors.green("Move accepted, here's the current board:")
     } 
     else {
-      return "Oh no, a piece is already at this position!" + "\n" + "Here is the board:"
+      return colors.red("Oh no, a piece is already at that position!, Try again." + "\n" + "Here is the board:")
     }
   } 
   else {
-    return "Sorry, I don't recognize those coordinates, they must be in the format of x,y. Try again..." + "\n" + "Here is the current board:"
+    return colors.red("Sorry, I don't recognize those coordinates," + "\n" + "they must be in the format of x,y. Try again." + "\n" + "Here is the current board:")
   }
-  // check if they entered a q
 };
 
 const playGame = ( player=1, marker='X' ) => {
     inquirer
-      .prompt([
+      .prompt(
         {
           type: 'input',
           name: 'coordinates',
           message: `Player ${ player } enter a coord x,y to place your "${ marker }" or enter 'q' to give up:`
         }
-      ])
+      )
       .then(input => {
         const { coordinates } = input 
         // exit the program
@@ -163,10 +162,10 @@ const playGame = ( player=1, marker='X' ) => {
 
         if ( moveSuccess ) {
           if (checkForWin()) {
-            return console.log(colors.red(`Congratulations player ${player}, you have won! Exiting game... `));
+            return console.log(colors.yellow(`Congratulations player ${player}, you have won! Exiting game... `));
           }
           else if ( checkForDraw() ) {
-            return console.log(colors.green('The game is a draw! Exiting Game...'));
+            return console.log(colors.blue('The game is a draw! Exiting Game...'));
           }
           // reset for the next move
           moveSuccess = false; 
