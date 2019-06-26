@@ -23,6 +23,14 @@ const board = {
   }
 };
 
+const clearBoard = () => {
+  for ( let row in board ) {
+    for ( let spot in board[ row ] ) {
+      board[ row ][ spot ] = '   '
+    };
+  };
+};
+
 const displayBoard = () => {
   console.log(
     '\n' + 
@@ -152,9 +160,11 @@ const playAgain = () => {
     )
     .then(input => {
       const { answer } = input;
+      // reset for the next move in case the player wants to play again
       moveSuccess = false; 
 
       if ( answer.trim().toLowerCase() === 'y' ) {
+        clearBoard();
         welcomeMessage();
         playGame();
       } 
