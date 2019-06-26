@@ -35,7 +35,7 @@ Users wanting to play this game have prior knowledge of git, the console and nod
 
 #### Windows
 - Press `❖ ` (windows key) or `❖ + R` and type in `cmd`.
-- In the `command prompt` type `git clonehttps://github.com/bennnym/FMA_TicTacToe.git` and press `↩`.
+- In the `command prompt` type `git  clone https://github.com/bennnym/FMA_TicTacToe.git` and press `↩`.
 - Open the `command prompt` program and navigate into the newly created folder by typing `cd FMA_TicTacToe` and hitting `↩`.
 - Enter `npm install inquirer colors` and press `↩`.
 - Now enter `node tictactoe.js` and press `↩` and enjoy the game!
