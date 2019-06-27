@@ -68,7 +68,7 @@ Users wanting to play this game have prior knowledge of git, the console and nod
  3,1 | 3,2 | 3,3
 ```
 ### Solution Execution
-- The solution to the tic-tac-toe problem was purposefully executed with clear variable and function names. With a deliberate effort to make the code as readable as possible.
+- The solution to the tic-tac-toe problem was purposefully executed with clear variable and function names. There was a deliberate effort to make the code as readable as possible.
 
 - Individual functions were written for all actions required within the game play. Such as placing a marker, checking if there is a winner or a draw, checking if the space is available, clearing the board, displaying the board and validating user input.
 
