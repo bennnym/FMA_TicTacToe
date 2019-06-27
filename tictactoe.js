@@ -214,7 +214,7 @@ const playGame = ( player=1, marker='X' ) => {
           // reset for the next move
           moveSuccess = false; 
           // switches to the next player
-          return playGame( changeTurn(player), changeMarker(marker) )
+          return playGame( changeTurn( player ), changeMarker( marker ) )
         }
 
        return playGame( player, marker )
