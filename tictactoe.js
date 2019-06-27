@@ -143,11 +143,14 @@ const validateMove = ( coordinates, marker ) => {
       return colors.green( "Move accepted, here's the current board:" )
     } 
     else {
-      return colors.red( "Oh no, a piece is already at that position!, Try again." + "\n" + "Here is the board:" )
+      return colors.red( "Oh no, a piece is already at that position!, Try again." + 
+                         "\n" + "Here is the board:" )
     }
   } 
   else {
-    return colors.red( "Sorry, I don't recognize those coordinates," + "\n" + "they must be in the format of x,y. Try again." + "\n" + "Here is the current board:" )
+    return colors.red( "Sorry, I don't recognize those coordinates," + "\n" 
+                      + "they must be in the format of x,y. Try again." + "\n"
+                      + "Here is the current board:" )
   }
 };
 
